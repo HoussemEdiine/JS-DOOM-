@@ -1,0 +1,46 @@
+button{
+    height: 0.9cm;
+}
+
+.produit{
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.5cm;
+    padding: 0.5cm;
+    justify-content: space-between;
+    width: 20cm;
+    background-color:white;
+    border-radius: 9px;        }
+.buttons {
+position: relative;
+padding-top: 40px;
+margin-right: 60px;
+bottom: 15px;
+}
+.like-btn {
+position: absolute;
+top: -2px;
+left: 15px;
+display: inline-block;
+background: url('twitter-heart.png');
+width: 90px;
+height: 90px;
+background-size: 2900%;
+background-repeat: no-repeat;
+cursor: pointer;
+}
+
+.is-active {
+animation-name: animate;
+animation-duration: .8s;
+animation-iteration-count: 1;
+animation-timing-function: steps(28);
+animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+0%   { background-position: left;  }
+50%  { background-position: right; }
+100% { background-position: right; }
+}
