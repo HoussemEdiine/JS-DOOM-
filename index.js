@@ -7,19 +7,31 @@ let btnSub = document.querySelectorAll('.produit .sub')
 let btnDelt = document.querySelectorAll('.produit .remove')
 let sum =parseInt(prixUnit[0].innerHTML)+parseInt(prixUnit[1].innerHTML)+parseInt(prixUnit[2].innerHTML)
 let q=1
+let plus =0
+total[0].innerHTML = sum.toString().concat('$')
 for(let i=0;i<quantity.length;i++){
+
+    btnDelt[i].addEventListener('click',(e)=>{
+        e.target.parentElement.remove()
+        sum = sum - parseInt(totalProduit[i].innerHTML)
+        total[0].innerHTML =sum.toString().concat("$")
+        totalProduit[i].innerHTML='0'
+    })  
+
     btnAdd[i].addEventListener('click',()=>{
         parseInt(btnAdd[i].nextElementSibling.innerHTML++)  
         totalProduit[i].innerHTML=(parseInt(btnAdd[i].nextElementSibling.innerHTML)*parseInt(prixUnit[i].innerHTML)).toString().concat('$')
      
-
+         
         
         sum=parseInt(totalProduit[0].lastChild.data)+parseInt(totalProduit[1].lastChild.data)+parseInt(totalProduit[2].lastChild.data)
-    
+        
+         
         total[0].innerHTML = sum.toString().concat('$')
          
         console.log(totalProduit)
     })
+
     btnSub[i].addEventListener('click',()=>{
         if( parseInt(btnSub[i].previousElementSibling.innerHTML)>1){
             parseInt(btnSub[i].previousElementSibling.innerHTML--)
@@ -33,19 +45,10 @@ for(let i=0;i<quantity.length;i++){
    
        total[0].innerHTML = sum.toString().concat("$")
     
-    })
-    btnDelt[i].addEventListener('click',(e)=>{
-        e.target.parentElement.remove()
-
-        sum = sum -+parseInt(totalProduit[i].lastChild.data)
-        total[0].innerHTML = sum.toString().concat("$")
-
-
-    })
-
-
-}
+    })  
     
 
-total[0].innerHTML = sum.toString().concat('$')
+}
 
+total[0].innerHTML = sum.toString().concat("$")
+    
